@@ -1,9 +1,207 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* RESET */
+*, *:before, *:after {margin: 0; padding: 0; outline: 0;}
+a {text-decoration: none; color: black;}
+ul li {list-style: none; display: inline-block;}
+
 :root {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(229, 229, 229);
+}
+
+/* DESKTOP CALENDAR */
+@media(max-width: 85.375em) {
+  .container {
+    width: 600px;
+    margin: 12% auto
+  }
+  .flex_box {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 350px;
+  }
+  .flex_box_item:nth-child(1) {
+    background: rgb(137, 10, 120);
+    width: 225px;
+    border: 5px solid rgb(137, 10, 120);
+    border-radius: 8px 0 0 8px;
+    color: #fff;
+  }
+  .flex_box_item:nth-child(1) h1 {
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: -2.2px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .flex_box_item:nth-child(1) p {
+    font-size: 1.4em;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    bottom: 10px;
+    text-transform: uppercase;
+  }
+  .current_events {
+    position: relative;
+    left: 15px;
+    top: 25px;
+  }
+  .current_events_span{
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+  }
+  .events_ifen {
+    position: relative;
+    top: 4px;
+  }
+  .events_li {
+    position: relative;
+    top: 4px;
+    left: 20px;
+    color: #D09CCA;
+  }
+  .create_on_event {
+    position: relative;
+    top: 100px;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+  input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+    height: 1.7em;
+    font-size: 1.2em;
+    color: #fff;
+    padding: 2px 0;
+    width: 80%;
+  }
+  ::-webkit-input-placeholder {
+    color: #fff;
+  }
+  input:hover {
+    border-bottom: 2px solid #eee;
+  }
+  button {
+    padding: 5px 9px;
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: 600;
+  }
+  button:hover {
+    background: rgba(1375, 10, 120, 0.4);
+  }
+  .flex_box_item:nth-child(2) {
+    background: #fff;
+    width: 365px;
+    border: 5px solid #fff;
+    border-radius: 0 8px 8px 0;
+  }
+  .flex_box_item:nth-child(2) p {
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    color: #9e9a9a;
+  }
+  .flex_box_item:nth-child(2) .setas {
+    font-size: 1.3em;
+    padding: 0 6px;
+  }
+  .month_year {
+    padding: 2% 4%;
+  }
+  hr {
+    margin: 13px 2px;
+  }
+  .day_week {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1% 1%;
+  }
+  .item {
+    flex-basis: 14%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .item_day {
+    flex-basis: 14%;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 12px 0;
+  }
+  .item_day:hover {
+    color: #09f;
+    cursor: pointer;
+  }
+  .item_day_off {
+    color: #9e9a9a;
+  }
+  .has-event {
+    background: rgb(137, 10, 120);
+    border-radius: 50%;
+    margin: 0 8px;
+    height: 18px;
+    color: #fff;
+  }
+}
+
+/* MOBILE CALENDAR */
+@media(max-width: 23.5em) {
+  .container {
+    width: 350px;
+  }
+  .flex_box {
+    flex-flow: row wrap;
+  }
+  .flex_box_item:nth-child(1) {
+    height: 170px;
+    width: 376px;
+    border-radius: 8px 8px 0 0;
+  }
+  .flex_box_item:nth-child(1) h1 {
+    margin: 0;
+    position: relative;
+    right: 110px;
+    top: 10px;
+  }
+  .flex_box_item:nth-child(1) p {
+    position: relative;
+    right: 108px;
+    top: 1px;
+    border-radius: 0;
+  }
+  .flex_box_item:nth-child(2) {
+    border-radius: 0 0 8px 8px;
+  }
+  .current_events {
+    width: 54%;
+    left: 159px;
+    top: -109px;
+  }
+  .create_on_event {
+    width: 58%;
+    top: -68px;
+    left: 75px;
+  }
+  input {
+    padding: 6px 0;
+  }
+  button {
+    border-radius: 50px;
+    position: relative;
+    right: 27px;
+  }
 }

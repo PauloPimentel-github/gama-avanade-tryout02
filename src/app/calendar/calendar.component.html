@@ -1,0 +1,80 @@
+<div class="container">
+
+  <!-- Flex Box Pai -->
+  <div class="flex_box">
+
+      <!-- Flex filho 1 -->
+      <div class="flex_box_item">
+        <!-- Date and week day -->
+        <div *ngIf="appointment">
+            <h1>{{ convertDate(appointment.date) }}</h1>
+            <p>{{ appointment.weekDay }}</p>
+        </div>
+        <!-- Fecha Date and week day -->
+
+        <!-- Current events -->
+        <div class="current_events">
+          <span class="current_events_span">Current Events</span><br>
+
+          <ul *ngIf="appointment">
+            <span class="events_ifen">-</span>
+            <li class="events_li">{{ appointment.title }}</li>
+          </ul>
+        </div>
+        <!-- Fecha Current events -->
+
+        <!-- Create on event -->
+        <div class="create_on_event">
+            <div>
+                <input #eventTitle [(ngModel)]="appointment.title" type="text" id="appointment-input" placeholder="Create on Event">
+                <button id="appointment-submit" (click)="addEvent(eventTitle.value, appointment.date, appointment.weekDay); eventTitle.value=''">+</button>
+            </div>
+        </div>
+        <!-- Fecha Create on event -->
+
+      </div>
+      <!-- Fecha Flex filho 1 -->
+
+      <!-- Flex filho 2 -->
+      <div class="flex_box_item">
+        <div class="month_year" *ngIf="appointment">
+            <p><span class="setas"><</span>  December/{{ convertDate(appointment.date) }} <span class="setas">></span></p>
+            <hr>
+        </div>
+
+        <!-- Dias da semana -->
+        <ul class="day_week">
+          <li class="item">SUN</li>
+          <li class="item">MON</li>
+          <li class="item">TUE</li>
+          <li class="item">WED</li>
+          <li class="item">THU</li>
+          <li class="item">FRI</li>
+          <li class="item">SAT</li>
+        </ul>
+        <!-- Fecha Dias da semana -->
+
+        <!-- Dias -->
+        <ul class="day_week">
+          <li class="item_day item_day_off">26</li>
+          <li class="item_day item_day_off">27</li>
+          <li class="item_day item_day_off">28</li>
+          <li class="item_day item_day_off">29</li>
+          <li class="item_day item_day_off">30</li>
+          <li *ngFor="let data of appointments" class="item_day">
+              <div class="calendar__day" [ngClass]="!data.title == '' ? 'has-event' : ''" (click)="onSelect(data)">{{ convertDate(data.date) }}</div>
+          </li>
+          <li class="item_day item_day_off">01</li>
+          <li class="item_day item_day_off">02</li>
+          <li class="item_day item_day_off">03</li>
+          <li class="item_day item_day_off">04</li>
+          <li class="item_day item_day_off">05</li>
+          <li class="item_day item_day_off">06</li>
+        </ul>
+        <!-- Fecha Dias -->
+
+      </div>
+      <!-- Fecha Flex filho 2 -->
+  </div>
+  <!-- Fecha Flex Box Pai -->
+</div>
